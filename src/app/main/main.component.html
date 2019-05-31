@@ -1,0 +1,19 @@
+<router-outlet></router-outlet>
+<div class="main-container">
+  <div class="search-bar">
+    <div class="search">
+      <img src="assets/icons8-search-32.png">
+      <input [(ngModel)]="searchedKey" (ngModelChange)="searchKeyword(searchedKey)"
+        placeholder="Search users by id, name, address..." (keyup)="handleKeyUp($event)" />
+      <span (click)="clearSearch()">&times;</span>
+    </div>
+  </div>
+
+  <div class="search-result">
+    <app-user [userDetail]="result" [selectedIndex]="listIndex" (valueChange)='changeIndex($event)'></app-user>
+  </div>
+
+  <div class="search-result" *ngIf="result?.length === 0">
+    No User Found
+  </div>
+</div>

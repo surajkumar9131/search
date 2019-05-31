@@ -1,0 +1,17 @@
+<div [ngClass]="{'active': selectedIndex === i}" class="user" *ngFor="let item of userDetail let i = index"
+  (mouseenter)="mouseEnter(i, item.id) " (mouseleave)="mouseLeave(i)" id="{{item.id}}">
+  <div>
+    {{item.id}}
+  </div>
+  <i>
+    {{item.name}}
+  </i>
+  <div class="address">
+    {{item.address}}, {{item.pincode}}
+  </div>
+  <div>
+    <div *ngFor="let item of item.items let isLast=last">
+      {{item}}{{isLast ? '' : ','}}
+    </div>
+  </div>
+</div>
